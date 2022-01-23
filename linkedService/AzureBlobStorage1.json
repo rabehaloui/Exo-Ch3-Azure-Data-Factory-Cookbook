@@ -5,8 +5,8 @@
 		"annotations": [],
 		"type": "AzureBlobStorage",
 		"typeProperties": {
-			"sasUri": "https://azureopendatastorage.blob.core.windows.net/citydatacontainer/Safety/Release/city=Chicago",
-			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQEFEOTZDQ0I1LTUzRkQtNDAyRS1BMkExLUY5QzQ0NUI3QzhFN183Yzk1ZWJkNS0wZTMyLTRlYzEtOGI2MS00MTdjMTNlZGQ1ZjYiDQp9"
+			"sasUri": "https://azureopendatastorage.blob.core.windows.net/citydatacontainer/Safety/Release/city=Boston",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQEFEOTZDQ0I1LTUzRkQtNDAyRS1BMkExLUY5QzQ0NUI3QzhFN19mMGM5YzFkMC0zYzM4LTRmMjYtOGVhNy05MmZmMWY5Y2QwZTciDQp9"
 		}
 	}
 }
