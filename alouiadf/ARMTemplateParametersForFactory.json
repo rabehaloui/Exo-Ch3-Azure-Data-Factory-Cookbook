@@ -5,17 +5,11 @@
 		"factoryName": {
 			"value": "alouiadf"
 		},
-		"AzureBlobStorage1_connectionString": {
-			"value": ""
-		},
 		"AzureDataLakeStorage1_accountKey": {
 			"value": ""
 		},
 		"AzureDataLakeStorage1_properties_typeProperties_url": {
 			"value": "https://alouistorage.dfs.core.windows.net/"
-		},
-		"trigger1_properties_typeProperties_scope": {
-			"value": "/subscriptions/104fc125-963d-49a2-9c54-7e47f46c457a/resourceGroups/FormationAzure/providers/Microsoft.Storage/storageAccounts/alouiblobsource"
 		}
 	}
 }
