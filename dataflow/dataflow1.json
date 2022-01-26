@@ -10,15 +10,36 @@
 						"type": "DatasetReference"
 					},
 					"name": "source1"
+				},
+				{
+					"dataset": {
+						"referenceName": "AzureDataLakeLink",
+						"type": "DatasetReference"
+					},
+					"name": "source2"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "AzureDataLakeLink",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
 			"transformations": [
 				{
 					"name": "castToInteger"
+				},
+				{
+					"name": "SortData"
+				},
+				{
+					"name": "UnionMovies"
 				}
 			],
-			"script": "source(output(\n\t\tmovieId as string,\n\t\ttitle as string,\n\t\tgenres as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: true,\n\tinferDriftedColumnTypes: true,\n\tlimit: 100,\n\tignoreNoFilesFound: false) ~> source1\nsource1 derive(movieId = toInteger(movieId)) ~> castToInteger"
+			"script": "source(output(\n\t\tmovieId as string,\n\t\ttitle as string,\n\t\tgenres as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: true,\n\tinferDriftedColumnTypes: true,\n\tlimit: 100,\n\tignoreNoFilesFound: false) ~> source1\nsource(output(\n\t\tmovieId as integer,\n\t\ttitle as string,\n\t\tgenres as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: true,\n\tinferDriftedColumnTypes: true,\n\tlimit: 100,\n\tignoreNoFilesFound: false) ~> source2\nsource1 derive(movieId = toInteger(movieId)) ~> castToInteger\ncastToInteger sort(asc(movieId, true),\n\tcaseInsensitive: true) ~> SortData\nsource2, SortData union(byName: true)~> UnionMovies\nUnionMovies sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tinput(\n\t\tmovieId as string,\n\t\ttitle as string,\n\t\tgenres as string\n\t),\n\tumask: 0022,\n\tpreCommands: [],\n\tpostCommands: [],\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> sink1"
 		}
 	}
 }
